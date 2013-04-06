@@ -333,6 +333,9 @@
 	// jQuery plugin implementation
 	$.fn.tooltip = function(conf) {
 
+    var api = this.data("tooltip");
+    if (api) { return api; }
+
 		conf = $.extend(true, {}, $.tools.tooltip.conf, conf);
 		
 		// position can also be given as string
@@ -343,7 +346,7 @@
 		// install tooltip for each entry in jQuery object
 		// that is not an existing instance
 		this.each(function() {
-			if ( $(this).data("tooltip")===null){
+			if ( $(this).data("tooltip")===undefined){
 			    api = new Tooltip($(this), conf);
 			    $(this).data("tooltip", api);
 			};
