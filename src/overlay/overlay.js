@@ -55,10 +55,12 @@
 			var conf = this.getConf(),
 				 w = $(window);				 
 				
+      /*
 			if (!conf.fixed)  {
 				pos.top += w.scrollTop();
 				pos.left += w.scrollLeft();
 			} 
+      */
 				
 			pos.position = conf.fixed ? 'fixed' : 'absolute';
 			this.getOverlay().css(pos).fadeIn(conf.speed, onLoad); 
